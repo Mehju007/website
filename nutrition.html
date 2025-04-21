@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Nutrition</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    header {
+      background-color: #28a745;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    h2 {
+      color: #28a745;
+    }
+
+    ul#nutrient-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul#nutrient-list li {
+      background-color: #e0e0e0;
+      margin: 5px 0;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    ul#nutrient-list li:hover {
+      background-color: #d0d0d0;
+    }
+
+    .info-box {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #ffffff;
+      border-left: 5px solid #28a745;
+      border-radius: 5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #28a745;
+      color: white;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>About Nutrition</h1>
+    <p>Learn the basics of good nutrition for a healthy life.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>What is Nutrition?</h2>
+      <p>Nutrition is the process of taking in food and using it for growth, metabolism, and repair. A good diet is essential for maintaining health and preventing diseases.</p>
+    </section>
+
+    <section>
+      <h2>Essential Nutrients</h2>
+      <ul id="nutrient-list">
+        <li onclick="showInfo('carbs')">Carbohydrates</li>
+        <li onclick="showInfo('proteins')">Proteins</li>
+        <li onclick="showInfo('fats')">Fats</li>
+        <li onclick="showInfo('vitamins')">Vitamins</li>
+        <li onclick="showInfo('minerals')">Minerals</li>
+        <li onclick="showInfo('water')">Water</li>
+      </ul>
+    </section>
+
+    <section id="nutrient-info" class="info-box">
+      <p>Click on any nutrient to learn more!</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 NutriSync. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function showInfo(nutrient) {
+      const infoBox = document.getElementById("nutrient-info");
+      let info = "";
+
+      if (nutrient === "carbs") {
+        info = "<strong>Carbohydrates:</strong> Provide energy. Found in bread, rice, pasta, and fruits.";
+      } else if (nutrient === "proteins") {
+        info = "<strong>Proteins:</strong> Help build and repair body tissues. Found in meat, eggs, dairy, and legumes.";
+      } else if (nutrient === "fats") {
+        info = "<strong>Fats:</strong> Store energy and support cell function. Found in oils, nuts, and dairy.";
+      } else if (nutrient === "vitamins") {
+        info = "<strong>Vitamins:</strong> Support body processes like vision, immunity, and blood clotting.";
+      } else if (nutrient === "minerals") {
+        info = "<strong>Minerals:</strong> Important for bones, teeth, and metabolism. Includes calcium and iron.";
+      } else if (nutrient === "water") {
+        info = "<strong>Water:</strong> Vital for digestion, circulation, and temperature regulation.";
+      }
+
+      infoBox.innerHTML = info;
+    }
+  </script>
+</body>
+</html>
