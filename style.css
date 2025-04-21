@@ -1,0 +1,189 @@
+/* Make page stretch to full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  color: #333;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background: white;
+  padding: 15px 20px;
+  border-bottom: 2px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 50px;
+}
+
+.site-title h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.site-title p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #007a33;
+  font-weight: bold;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.welcome h2 {
+  font-size: 28px;
+}
+
+.how-it-helps {
+  margin-top: 30px;
+}
+
+.how-it-helps h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.how-it-helps ul {
+  list-style: none;
+  padding: 0;
+}
+
+.how-it-helps li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+footer {
+  background: #007a33;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.get-started-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #28a745;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.get-started-button:hover {
+  background-color: #218838;
+}
+.form-section {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.form-section h2 {
+  text-align: center;
+}
+
+form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+form input,
+form select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #007a33;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #005e27;
+}
+
+form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+}
+
+.meal-plan {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.meal-plan h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.meal-plan p, .meal-plan li {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.meal-plan ul {
+  list-style: none;
+  padding-left: 0;
+}

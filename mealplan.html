@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Meal Plan – NutriSync</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="logo-container">
+        <img src="logo.png" alt="NutriSync Logo" class="logo" />
+        <div class="site-title">
+          <h1>NutriSync</h1>
+          <p>Decode Your Diet</p>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="nutrition.html">About Nutrition</a></li>
+          <li><a href="tips.html">Healthy Tips</a></li>
+          <li><a href="foods.html">Foods</a></li>
+          <li><a href="input.html">Get Plan</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="meal-plan">
+        <h2>Your Personalized Meal Plan</h2>
+        <div id="userInfo"></div>
+        <div id="mealOutput"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 NutriSync. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    const userData = JSON.parse(localStorage.getItem("userData"));
+
+    const meals = {
+      lose: [
+        "Oatmeal with berries",
+        "Grilled chicken salad",
+        "Steamed vegetables with brown rice",
+        "Greek yogurt with nuts (snack)"
+      ],
+      gain: [
+        "Scrambled eggs with toast",
+        "Grilled chicken with quinoa",
+        "Peanut butter smoothie",
+        "Baked fish with sweet potato",
+        "Protein bar (snack)",
+        "Cottage cheese with fruit (snack)"
+      ],
+      maintain: [
+        "Whole grain toast with avocado",
+        "Lentil soup with whole wheat bread",
+        "Grilled veggies and tofu",
+        "Fruit smoothie (snack)"
+      ]
+    };
+
+    function generateMealPlan(goal, issues) {
+      let plan = meals[goal] || [];
+      let tips = "";
+
+      if (issues.toLowerCase().includes("diabetes")) {
+        tips += "<p><strong>Note:</strong> Meals are adjusted to be low in sugar and refined carbs.</p>";
+      } else if (issues.toLowerCase().includes("thyroid")) {
+        tips += "<p><strong>Note:</strong> Consider iodine-rich and selenium-rich foods.</p>";
+      } else if (issues.trim() !== "") {
+        tips += `<p><strong>Note:</strong> Consider checking with a doctor regarding: ${issues}</p>`;
+      }
+
+      let mealList = "<ul>";
+      plan.forEach((meal, i) => {
+        mealList += `<li><strong>Meal ${i + 1}:</strong> ${meal}</li>`;
+      });
+      mealList += "</ul>";
+
+      return tips + mealList;
+    }
+
+    if (userData) {
+      document.getElementById("userInfo").innerHTML = `
+        <p><strong>Name:</strong> ${userData.name}</p>
+        <p><strong>Age:</strong> ${userData.age}</p>
+        <p><strong>Height:</strong> ${userData.height} cm</p>
+        <p><strong>Weight:</strong> ${userData.weight} kg</p>
+        <p><strong>Goal:</strong> ${userData.goal}</p>
+        <p><strong>Health Issues:</strong> ${userData.issues || "None"}</p>
+      `;
+
+      const mealContent = generateMealPlan(userData.goal, userData.issues);
+      document.getElementById("mealOutput").innerHTML = mealContent;
+    } else {
+      document.getElementById("mealOutput").innerHTML = "<p>No data found. Please fill the form first.</p>";
+    }
+  </script>
+</body>
+</html>

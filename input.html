@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Get Your Plan – NutriSync</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="logo-container">
+        <img src="logo.png" alt="NutriSync Logo" class="logo" />
+        <div class="site-title">
+          <h1>NutriSync</h1>
+          <p>Decode Your Diet</p>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="nutrition.html">About Nutrition</a></li>
+          <li><a href="tips.html">Healthy Tips</a></li>
+          <li><a href="foods.html">Foods</a></li>
+          <li><a href="input.html">Get Plan</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="form-section">
+        <h2>Get Your Personalized Plan</h2>
+        <form id="userForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required />
+          
+            <label for="age">Age:</label>
+            <input type="number" id="age" required />
+          
+            <label for="height">Height (cm):</label>
+            <input type="number" id="height" required />
+          
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" required />
+          
+            <label for="goal">Your Goal:</label>
+            <select id="goal" required>
+              <option value="">-- Select --</option>
+              <option value="lose">Lose Weight</option>
+              <option value="gain">Gain Muscle</option>
+              <option value="maintain">Stay Healthy</option>
+            </select>
+          
+            <label for="issues">Health Issues (if any):</label>
+            <textarea id="issues" rows="3" placeholder="e.g. Diabetes, Thyroid, etc."></textarea>
+          
+            <button type="submit">See My Meal Plan</button>
+          </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 NutriSync. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("userForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const userData = {
+        name: document.getElementById("name").value,
+        age: document.getElementById("age").value,
+        height: document.getElementById("height").value,
+        weight: document.getElementById("weight").value,
+        goal: document.getElementById("goal").value,
+        issues: document.getElementById("issues").value
+      };
+      localStorage.setItem("userData", JSON.stringify(userData));
+      window.location.href = "mealplan.html";
+    });
+  </script>
+</body>
+</html>
